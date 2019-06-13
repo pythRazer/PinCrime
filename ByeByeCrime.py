@@ -4,6 +4,44 @@ from geopy.geocoders import ArcGIS
 import folium
 import numpy
 
+while True:
+
+    input_method = input("Address for 1, latitude and longitude for 2: ")
+
+    # if(input_method != "1" or input_method != "2"):
+    #     print("Invalid input, please try again")
+    #     continue
+
+    if(input_method == "1"):
+        try:
+            user_address = input("Please enter the address: ")
+            geolocator = ArcGIS(user_agent="ByeByeCrime")
+            location = geolocator.geocode(user_address)
+            print(location.address)
+            print(location.latitude, location.longitude)
+            user_lat = str(location.latitude)
+            user_lon = str(location.longitude)
+        except:
+            print("Invalid address, try again, or input the latitude and longitude instead")
+            continue
+        else:
+            break
+    elif(input_method == "2"):
+        try:
+            user_lat = input("Please enter the latitude: ")
+            user_lon = input("Please enter the longitude: ")
+            if(user_lat.isdigit() or user_lon.isdigit() != True):
+                print("Invalid latitude or longitude, please try again")
+                continue
+        except:
+            print("Invalid latitude or longitude, please try again")
+            continue
+        else:
+            break
+
+
+print("Processing...")
+
 crime_color = {
     'anti-social-behaviour': 'red',
     'bicycle-theft': 'blue',
@@ -18,7 +56,7 @@ crime_color = {
     'theft-from-the-person': 'cadetblue',
     'vehicle-crime': 'darkpurple',
     'violent-crime': 'pink',
-    'other-crime': 'yellow'
+    'other-crime': 'white'
 }
 
 
@@ -54,9 +92,6 @@ def marking(lt, ln, ctg):
                       icon=folium.Icon(color=crime_color[ctg])))
 
 
-user_lat = "51.509865"
-user_lon = "-0.118092"
-
 request(user_lat, user_lon)
 
 map = folium.Map(location=[user_lat, user_lon],
@@ -64,3 +99,4 @@ map = folium.Map(location=[user_lat, user_lon],
                  titles="Crime Map")
 map.add_child(fg)
 map.save("ByeByeCrime.html")
+print("The map was generated successfully")
