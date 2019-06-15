@@ -72,9 +72,9 @@ crime_color = {
     'robbery': 'darkblue',
     'shoplifting': 'darkgreen',
     'theft-from-the-person': 'cadetblue',
-    'vehicle-crime': 'darkpurple',
+    'vehicle-crime': 'gray',
     'violent-crime': 'pink',
-    'other-crime': 'beige'
+    'other-crime': 'lightgreen'
 }
 
 
@@ -109,12 +109,12 @@ def marking(lt, ln, ctg):
     if ctg not in crime_color.keys():
         ctg = 'other-crime'
 
-    # fg.add_child(
-    #     folium.Marker(location=[lt, ln],
-    #                   popup=ctg,
-    #                   icon=folium.Icon(color=crime_color[ctg])))
-    fg.add_child(folium.Marker(location=[lt, ln],popup=ctg,icon=folium.Icon(color='red', icon='home', prefix='fa')))
-    # fg.add_child(folium.Marker())
+    fg.add_child(
+        folium.Marker(location=[lt, ln],
+                      popup=ctg,
+                      icon=folium.Icon(color=crime_color[ctg])))
+    
+
 
 
 request(user_lat, user_lon)
