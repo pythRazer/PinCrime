@@ -16,7 +16,7 @@ while True:
 
     if(input_method == "1"):
         try:
-            user_address = input("Please enter the address: ")
+            user_address = input("Please enter the address(as detail as possible): ")
             geolocator = ArcGIS(user_agent="ByeByeCrime")
             location = geolocator.geocode("UK" + user_address)
             print(location.address)
@@ -74,7 +74,7 @@ crime_color = {
     'theft-from-the-person': 'cadetblue',
     'vehicle-crime': 'darkpurple',
     'violent-crime': 'pink',
-    'other-crime': 'white'
+    'other-crime': 'beige'
 }
 
 
@@ -109,10 +109,12 @@ def marking(lt, ln, ctg):
     if ctg not in crime_color.keys():
         ctg = 'other-crime'
 
-    fg.add_child(
-        folium.Marker(location=[lt, ln],
-                      popup=ctg,
-                      icon=folium.Icon(color=crime_color[ctg])))
+    # fg.add_child(
+    #     folium.Marker(location=[lt, ln],
+    #                   popup=ctg,
+    #                   icon=folium.Icon(color=crime_color[ctg])))
+    fg.add_child(folium.Marker(location=[lt, ln],popup=ctg,icon=folium.Icon(color='red', icon='home', prefix='fa')))
+    # fg.add_child(folium.Marker())
 
 
 request(user_lat, user_lon)
