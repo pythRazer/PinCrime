@@ -1,64 +1,9 @@
 import pandas
-import json
 from geopy.geocoders import ArcGIS
 import folium
 import sys
-import urllib
-import os
-import numpy
-
-
-
-while True:
-
-
-    input_method = input("Address for 1, latitude and longitude for 2, close the app for 3: ")
-
-    if(input_method == "1"):
-        try:
-            user_address = input("Please enter the address(as detail as possible): ")
-            geolocator = ArcGIS(user_agent="ByeByeCrime")
-            location = geolocator.geocode("UK" + user_address)
-            print(location.address)
-            print(location.latitude, location.longitude)
-            user_lat = str(location.latitude)
-            user_lon = str(location.longitude)
-        except:
-            print("Invalid address, try again, or input the latitude and longitude instead")
-            continue
-        else:
-            break
-    elif(input_method == "2"):
-        try:
-            user_lat = input("Please enter the latitude: ")
-            user_lon = input("Please enter the longitude: ")
-            if(user_lat.isdigit() != True or user_lon.isdigit() != True):
-                print("Invalid latitude or longitude, please try again lll")
-                continue
-        except:
-            print("Invalid latitude or longitude, please try again")
-            continue
-        else:
-            break
-
-    elif(input_method == "3"):
-        print("Closed")
-        sys.exit()
-
-    else:
-        print("Invalid input, please try again")
-        continue
-
-
-
-
-    # if(input_method != "1" or input_method != "2"):
-    #     print("Invalid input, please try again")
-    #     continue
-
-
-
-print("Processing...")
+from urllib.request import urlopen
+import json
 
 crime_color = {
     'anti-social-behaviour': 'red',
@@ -83,13 +28,17 @@ def request(lat, lon):
     try:
         df1 = pandas.read_json(df1_request)
     except:
-        print("")
+        print("Error")
 
-    print(df1["location"].size)
-    lanlon(df1)
+    print("Number of crime: ", df1["location"].size)
+    latlon(df1)
 
 
-def lanlon(df):
+fg = folium.FeatureGroup(name="ByeByeCrime")
+
+
+def latlon(df):
+    print("Making the map...")
     for i in range(df["location"].size):
         lat = float(df["location"].get(i)["latitude"])
         lon = float(df["location"].get(i)["longitude"])
@@ -101,37 +50,83 @@ def lanlon(df):
         # print(str(i) + ": " + str(lat) + ", " + str(lon))
 
 
-fg = folium.FeatureGroup(name="Crime Map")
+def marking(lt, ln, ct):
+    if ct not in crime_color.keys():
+        ct = 'other-crime'
+
+    # fg.add_child(
+    #     folium.Marker(location=[lt, ln],
+    #                   popup=ctg,
+    #                   icon=folium.Icon(color=crime_color[ctg])))
+
+    fg.add_child(folium.CircleMarker(location=[lt, ln], radius=8,
+                                     popup=ct, fill_color=crime_color[ct], color="dark", fill_opacity=0.7))
 
 
-def marking(lt, ln, ctg):
-
-    if ctg not in crime_color.keys():
-        ctg = 'other-crime'
-
-    fg.add_child(
-        folium.Marker(location=[lt, ln],
-                      popup=ctg,
-                      icon=folium.Icon(color=crime_color[ctg])))
-    
 
 
+if __name__ == '__main__':
 
-request(user_lat, user_lon)
+    last_update = json.loads(urlopen("https://data.police.uk/api/crime-last-updated").read())
+    print("Last updated: ", last_update['date'])
 
-map = folium.Map(location=[user_lat, user_lon],
-                 zoom_start=20,
-                 titles="Crime Map")
-map.add_child(fg)
+    while True:
 
-map.save("ByeByeCrime.html")
-# path = os.path.abspath("ByeByeCrime.html")
-# page = urllib.request.urlopen(path).read()
-# print(page)
-# html_string = map.get_root().render()
-# f = codecs.open("ByeByeCrime.html", "r", "utf-8")
-print("The map was generated successfully")
-#36.84183000000007 -76.05180999999999
-#51.503659988314624 -0.11925004443394603
+        input_method = input("Address for 1, latitude and longitude for 2, close the app for 3: ")
 
+        if (input_method == "1"):
+            try:
+                user_address = input("Please enter the address(as detail as possible): ")
+                geolocator = ArcGIS(user_agent="ByeByeCrime")
+                location = geolocator.geocode(user_address)
+                print("Returned location is: " + location.address)
+                print(location.latitude, location.longitude)
+                user_lat = str(location.latitude)
+                user_lon = str(location.longitude)
+                try:
+                    request(user_lat, user_lon)
+                except:
+                    print("Invalid address, try again, or input the latitude and longitude instead")
+                    continue
 
+            except:
+                print("Invalid address, try again, or input the latitude and longitude instead")
+                continue
+            else:
+                break
+        elif (input_method == "2"):
+            try:
+                user_lat = input("Please enter the latitude: ")
+                user_lon = input("Please enter the longitude: ")
+                try:
+                    request(user_lat, user_lon)
+                except:
+                    print("Invalid latitude or longitude, please try again")
+                    continue
+
+                # if(user_lat.isdigit() != True or user_lon.isdigit() != True):
+                #     print("Invalid latitude or longitude, please try again lll")
+                #     continue
+            except:
+                print("Invalid latitude or longitude, please try again")
+                continue
+            else:
+                break
+
+        elif (input_method == "3"):
+            print("Closed")
+            sys.exit()
+
+        else:
+            print("Invalid input, please try again")
+            continue
+
+    map = folium.Map(location=[user_lat, user_lon],
+                     zoom_start=15,
+                     titles="ByeByeCrime")
+    map.add_child(fg)
+    map.add_child((folium.Marker(location=(user_lat, user_lon), popup="You are here",
+                                 icon=folium.Icon(color='blue', icon='user'))))
+    map.save("ByeByeCrime.html")
+
+    print("The map was generated successfully")
