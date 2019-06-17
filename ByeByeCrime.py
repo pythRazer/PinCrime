@@ -1,9 +1,9 @@
+from flask import Flask, render_template, request
 import pandas
 from geopy.geocoders import ArcGIS
 import folium
-import sys
-from urllib.request import urlopen
-import json
+import matplotlib.pyplot as plt
+
 
 crime_color = {
     'anti-social-behaviour': 'red',
@@ -22,111 +22,67 @@ crime_color = {
     'other-crime': 'lightgreen'
 }
 
+app = Flask(__name__)
 
-def request(lat, lon):
-    df1_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
-    try:
-        df1 = pandas.read_json(df1_request)
-    except:
-        print("Error")
+@app.route('/')
+def home():
+    return render_template('home.html')
 
-    print("Number of crime: ", df1["location"].size)
-    latlon(df1)
+@app.route('/result', methods = ['POST', 'GET'])
+def byebyeresult():
+    if request.method == 'POST':
+        address = request.form
+        geolocator = ArcGIS(user_agent="app_test")
+        location = geolocator.geocode(address)
+        lat = str(location.latitude)
+        lon = str(location.longitude)
+        start_coords = (lat, lon)
 
+        folium_map = folium.Map(location=start_coords, zoom_start=16, width='75%', height='75%')
+        try:
+            df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
+            df = pandas.read_json(df_request)
+            fg = folium.FeatureGroup(name="ByeByeCrime")
 
-fg = folium.FeatureGroup(name="ByeByeCrime")
+            total_crime = df["id"].size
 
+            for i in range(total_crime):
+                crime_lat = float(df["location"].get(i)["latitude"])
+                crime_lon = float(df["location"].get(i)["longitude"])
 
-def latlon(df):
-    print("Making the map...")
-    for i in range(df["location"].size):
-        lat = float(df["location"].get(i)["latitude"])
-        lon = float(df["location"].get(i)["longitude"])
+                ctg = df["category"][i]
 
-        ctg = df["category"][i]
-
-        marking(lat, lon, ctg)
-
-        # print(str(i) + ": " + str(lat) + ", " + str(lon))
-
-
-def marking(lt, ln, ct):
-    if ct not in crime_color.keys():
-        ct = 'other-crime'
-
-    # fg.add_child(
-    #     folium.Marker(location=[lt, ln],
-    #                   popup=ctg,
-    #                   icon=folium.Icon(color=crime_color[ctg])))
-
-    fg.add_child(folium.CircleMarker(location=[lt, ln], radius=8,
-                                     popup=ct, fill_color=crime_color[ct], color="dark", fill_opacity=0.7))
+                if ctg not in crime_color.keys():
+                    ctg = 'other-crime'
 
 
+
+                fg.add_child(folium.CircleMarker(location=[crime_lat, crime_lon], radius=8,
+                                                 popup=ctg, fill_color=crime_color[ctg], color="dark", fill_opacity=0.7))
+
+            # plot()
+            folium_map.add_child(fg)
+            folium_map.add_child((folium.Marker(location=(lat, lon), popup="You are here",
+                                                icon=folium.Icon(color='blue', icon='user'))))
+
+            folium_map.save("templates/ByeByeCrime.html")
+
+
+
+            return render_template("result.html", location_address = location.address, location_latitude = lat, location_longtitude = lon, total_crime = total_crime)
+        except:
+            return render_template("error.html")
+#
+# def plot():
+#     left = [1, 2, 3, 4, 5]
+#     height = [10, 24, 36, 40, 5]
+#     tick_lable = ['one', 'two', 'three', 'four', 'five']
+#     plt.bar(left, height, tick_lable=tick_lable, width=0.8, color = ['red', 'green'])
+#     plt.xlabel('y - axis')
+#     plt.xlabel('x - axis')
+#     plt.title('My var chart!')
+#     plt.savefig('static/images/plot.png')
 
 
 if __name__ == '__main__':
-
-    last_update = json.loads(urlopen("https://data.police.uk/api/crime-last-updated").read())
-    print("Last updated: ", last_update['date'])
-
-    while True:
-
-        input_method = input("Address for 1, latitude and longitude for 2, close the app for 3: ")
-
-        if (input_method == "1"):
-            try:
-                user_address = input("Please enter the address(as detail as possible): ")
-                geolocator = ArcGIS(user_agent="ByeByeCrime")
-                location = geolocator.geocode(user_address)
-                print("Returned location is: " + location.address)
-                print(location.latitude, location.longitude)
-                user_lat = str(location.latitude)
-                user_lon = str(location.longitude)
-                try:
-                    request(user_lat, user_lon)
-                except:
-                    print("Invalid address, try again, or input the latitude and longitude instead")
-                    continue
-
-            except:
-                print("Invalid address, try again, or input the latitude and longitude instead")
-                continue
-            else:
-                break
-        elif (input_method == "2"):
-            try:
-                user_lat = input("Please enter the latitude: ")
-                user_lon = input("Please enter the longitude: ")
-                try:
-                    request(user_lat, user_lon)
-                except:
-                    print("Invalid latitude or longitude, please try again")
-                    continue
-
-                # if(user_lat.isdigit() != True or user_lon.isdigit() != True):
-                #     print("Invalid latitude or longitude, please try again lll")
-                #     continue
-            except:
-                print("Invalid latitude or longitude, please try again")
-                continue
-            else:
-                break
-
-        elif (input_method == "3"):
-            print("Closed")
-            sys.exit()
-
-        else:
-            print("Invalid input, please try again")
-            continue
-
-    map = folium.Map(location=[user_lat, user_lon],
-                     zoom_start=15,
-                     titles="ByeByeCrime")
-    map.add_child(fg)
-    map.add_child((folium.Marker(location=(user_lat, user_lon), popup="You are here",
-                                 icon=folium.Icon(color='blue', icon='user'))))
-    map.save("ByeByeCrime.html")
-
-    print("The map was generated successfully")
+    app.run(debug = True)
