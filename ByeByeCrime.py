@@ -33,13 +33,15 @@ def byebyeresult():
     if request.method == 'POST':
         address = request.form
         geolocator = ArcGIS(user_agent="app_test")
-        location = geolocator.geocode(address)
-        lat = str(location.latitude)
-        lon = str(location.longitude)
-        start_coords = (lat, lon)
-
-        folium_map = folium.Map(location=start_coords, zoom_start=16, width='75%', height='75%')
+        
         try:
+
+            location = geolocator.geocode(address)
+            lat = str(location.latitude)
+            lon = str(location.longitude)
+            start_coords = (lat, lon)
+
+            folium_map = folium.Map(location=start_coords, zoom_start=16, width='75%', height='75%')
             df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
             df = pandas.read_json(df_request)
             fg = folium.FeatureGroup(name="ByeByeCrime")
