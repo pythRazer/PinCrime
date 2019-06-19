@@ -33,7 +33,7 @@ def byebyeresult():
     if request.method == 'POST':
         address = request.form
         geolocator = ArcGIS(user_agent="app_test")
-        
+
         try:
 
             location = geolocator.geocode(address)
@@ -63,11 +63,22 @@ def byebyeresult():
                                                  popup=ctg, fill_color=crime_color[ctg], color="dark", fill_opacity=0.7))
 
             # plot()
-            folium_map.add_child(fg)
-            folium_map.add_child((folium.Marker(location=(lat, lon), popup="You are here",
+
+            fgu = folium.FeatureGroup(name = "User")
+            fgu.add_child((folium.Marker(location=(lat, lon), popup="You are here",
                                                 icon=folium.Icon(color='blue', icon='user'))))
 
+
+            fgc = folium.FeatureGroup(name = "Contour map")
+            fgc.add_child()
+            folium_map.add_child(fg)
+            folium_map.add_child(fgu)
+            # folium_map.add_child(fgc)
+            # folium_map.add_child(folium.LayerControl)
+
             folium_map.save("templates/ByeByeCrime.html")
+
+
 
 
 
@@ -88,3 +99,4 @@ def byebyeresult():
 
 if __name__ == '__main__':
     app.run(debug = True)
+
