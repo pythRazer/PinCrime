@@ -1,22 +1,23 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <title>Bye Bye Crime</title>
-    <a href="/" id="logo">Bye Bye Crimes</a>
-  <ul id="menu">
-    <li><a href="/"><span>Home</span></a></li>
-    <li><a href="/"><span>Tutorials</span></a></li>
-    <li><a href="/"><span>Articles</span></a></li>
-    <li><a href="/"><span>About me</span></a></li>
-<!--    <li><a href="/"><span>Contact</span></a></li>-->
-  </ul>
+    <a href="/" id="logo">ByeByeCrime</a>
+    <ul id="menu">
+        <li><a href="/"><span>article</span></a></li>
+        <li><a href="/"><span>heat map</span></a></li>
+        <li><a href="/"><span>contact</span></a></li>
+        <!--    <li><a href="/"><span>About me</span></a></li>-->
+        <!--    <li><a href="/"><span>Contact</span></a></li>-->
+    </ul>
 </head>
 <body>
-<form action = "http://localhost:5000/result" method = "POST">
+<form action="http://localhost:5000/result" method="POST">
 
-    <p>Address <input type = "text" name = "Address" /></p>
-    <p><input type = "submit" value = "submit" /></p>
+<p>Please input the address <input type="text" name="Address" placeholder="Address"/></p>
+<p><a href="/"><span><input type="submit" value="submit"/></span></a></p>
+<!--<p><input type="submit" value="submit"/></p>-->
 </form>
 </body>
 </html>
