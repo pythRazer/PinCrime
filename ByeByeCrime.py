@@ -8,6 +8,8 @@ from urllib.request import urlopen
 import matplotlib.pyplot as plt
 from textwrap import wrap
 
+# Richard is a big pig
+
 crime_type = ['anti-social-behaviour', 'bicycle-theft', 'burglary', 'criminal-damage-arson', 'drugs', 'other-theft',
               'possession-of-weapons', 'public-order', 'robbery', 'shoplifting', 'theft-from-the-person',
               'vehicle-crime', 'violent-crime', 'other-crime']
