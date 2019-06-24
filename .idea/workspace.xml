@@ -4,11 +4,15 @@
     <list default="true" id="b428854f-a99a-47e5-a223-510f8bc9fcd2" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/templates/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/ByeByeCrime.py" beforeDir="false" afterPath="$PROJECT_DIR$/ByeByeCrime.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/ByeByeCrime.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/ByeByeCrime.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/result.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,11 +22,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ByeByeCrime.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="99">
               <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+=======
+            <state relative-caret-position="113">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -33,6 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="153">
               <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
             </state>
@@ -44,6 +54,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-55">
               <caret line="95" column="19" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
+=======
+            <state relative-caret-position="285">
+              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
             </state>
           </provider>
         </entry>
@@ -51,17 +65,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/result.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="255">
               <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+=======
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="404">
               <caret line="122" selection-start-line="122" selection-end-line="122" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
             </state>
           </provider>
         </entry>
@@ -69,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/error.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="120">
               <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
             </state>
           </provider>
@@ -77,7 +104,15 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/ByeByeCrime.html">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor" />
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            </state>
+          </provider>
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -114,20 +149,35 @@
       <list>
         <option value="$PROJECT_DIR$/ByeByeCrime.html" />
         <option value="$PROJECT_DIR$/templates/ByeByeCrime.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/error.html" />
         <option value="$PROJECT_DIR$/ByeByeCrime.py" />
         <option value="$PROJECT_DIR$/templates/result.html" />
         <option value="$PROJECT_DIR$/static/style.css" />
         <option value="$PROJECT_DIR$/templates/style.css" />
         <option value="$PROJECT_DIR$/templates/home.html" />
+=======
+        <option value="$PROJECT_DIR$/templates/result.html" />
+        <option value="$PROJECT_DIR$/templates/error.html" />
+        <option value="$PROJECT_DIR$/ByeByeCrime.py" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/static/style.css" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="158" />
     <option name="y" value="23" />
     <option name="width" value="1282" />
     <option name="height" value="877" />
+=======
+    <option name="x" value="582" />
+    <option name="y" value="23" />
+    <option name="width" value="858" />
+    <option name="height" value="813" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -142,11 +192,6 @@
             <path>
               <item name="ByeByeCrime" type="b2602c69:ProjectViewProjectNode" />
               <item name="ByeByeCrime" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ByeByeCrime" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ByeByeCrime" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ByeByeCrime" type="b2602c69:ProjectViewProjectNode" />
@@ -272,17 +317,26 @@
       <workItem from="1560842213118" duration="183000" />
       <workItem from="1560845658151" duration="659000" />
       <workItem from="1560904562462" duration="72000" />
+<<<<<<< HEAD
       <workItem from="1560905848082" duration="4762000" />
       <workItem from="1561002560899" duration="11318000" />
       <workItem from="1561084446710" duration="84000" />
       <workItem from="1561084823587" duration="3337000" />
       <workItem from="1561091252328" duration="178000" />
       <workItem from="1561091576157" duration="856000" />
+=======
+      <workItem from="1560905848082" duration="655000" />
+      <workItem from="1561077649629" duration="492000" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="52374000" />
+=======
+    <option name="totallyTimeSpent" value="32986000" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -294,10 +348,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="720" y="23" width="720" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2581121" />
+=======
+    <frame x="720" y="23" width="720" height="813" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.044247787" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -328,39 +389,38 @@
     <SUITE FILE_PATH="coverage/ByeByeCrime$ByeByeCrime.coverage" NAME="ByeByeCrime Coverage Results" MODIFIED="1561092475016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py">
+    <entry file="file:///anaconda3/lib/python3.7/site-packages/pandas/core/indexes/base.py" />
+    <entry file="file:///anaconda3/lib/python3.7/site-packages/pandas/core/frame.py" />
+    <entry file="file:///anaconda3/lib/python3.7/site-packages/flask/app.py" />
+    <entry file="file:///anaconda3/lib/python3.7/site-packages/werkzeug/serving.py" />
+    <entry file="file://$PROJECT_DIR$/templates/ByeByeCrime.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="3079" selection-start-line="3079" selection-end-line="3079" />
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///anaconda3/lib/python3.7/site-packages/pandas/core/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="2694" selection-start-line="2694" selection-end-line="2694" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///anaconda3/lib/python3.7/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15521">
-          <caret line="942" selection-start-line="942" selection-end-line="942" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///anaconda3/lib/python3.7/site-packages/werkzeug/serving.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13362">
-          <caret line="792" column="42" selection-start-line="792" selection-start-column="42" selection-end-line="792" selection-end-column="42" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_plot.png" />
     <entry file="file:///anaconda3/lib/python3.7/site-packages/matplotlib/category.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="455">
           <caret line="52" selection-start-line="52" selection-end-line="52" />
+=======
+        <state relative-caret-position="113">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
         </state>
       </provider>
     </entry>
@@ -369,6 +429,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/error.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="136">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
         </state>
@@ -396,11 +457,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-55">
           <caret line="95" column="19" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
+=======
+        <state relative-caret-position="285">
+          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/style.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="404">
           <caret line="122" selection-start-line="122" selection-end-line="122" />
         </state>
@@ -420,6 +486,24 @@
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/result.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+>>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
         </state>
       </provider>
     </entry>
