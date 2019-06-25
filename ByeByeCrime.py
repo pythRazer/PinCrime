@@ -3,19 +3,18 @@ import pandas
 from geopy.geocoders import ArcGIS
 import folium
 from folium.plugins import HeatMap, FeatureGroupSubGroup
-import json
-from urllib.request import urlopen
+# import json
+# from urllib.request import urlopen
 import matplotlib.pyplot as plt
 import base64
 from textwrap import wrap
-
-# Richard is a big pig
 
 crime_type = ['anti-social-behaviour', 'bicycle-theft', 'burglary', 'criminal-damage-arson', 'drugs', 'other-theft',
               'possession-of-weapons', 'public-order', 'robbery', 'shoplifting', 'theft-from-the-person',
               'vehicle-crime', 'violent-crime', 'other-crime']
 
-color = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige', 'darkblue', 'darkgreen', 'cadetblue', 'gray', 'pink', 'lightgreen']
+color = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige', 'darkblue', 'darkgreen',
+         'cadetblue', 'gray', 'pink', 'lightgreen']
 
 count = [0] * 14
 crime_color = {
@@ -41,24 +40,23 @@ crime_count = {zip(crime_type, count)}
 
 level = {4, 2, 1, 2, 3, 'n/a', 3, 4, 2, 4, 1, 3, 3, 'n/a'}
 
-
 crime_level = {zip(crime_type, level)}
 
 # print(count_dict)
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
-
-
     return render_template('home.html')
+
 
 # @app.route('/', methods = ['POST', 'GET'])
 # def date():
 #     return year
 
-@app.route('/result', methods = ['POST', 'GET'])
+@app.route('/result', methods=['POST', 'GET'])
 def byebyeresult():
     if request.method == 'POST':
         address = request.form
@@ -82,7 +80,6 @@ def byebyeresult():
             total_crime = df["id"].size
 
             crime_latlon = []
-
 
             for i in range(total_crime):
                 crime_lat = float(df["location"].get(i)["latitude"])
@@ -108,25 +105,15 @@ def byebyeresult():
             #
             # print(total)
 
+            # plot()
 
+            # fg.add_child(fg_anti, fg_bicycle)
 
-
-
-
-                # plot()
-
-                # fg.add_child(fg_anti, fg_bicycle)
-
-
-
-            fgu = folium.FeatureGroup(name = "User")
+            fgu = folium.FeatureGroup(name="User")
             fgu.add_child((folium.Marker(location=(lat, lon), tooltip="You are here",
-                                                icon=folium.Icon(color='blue', icon='user'))))
-
+                                         icon=folium.Icon(color='blue', icon='user'))))
 
             # fgc = folium.FeatureGroup(name = "Contour map")
-
-
 
             # HeatMap().add_to(fgc)
             heat_map = HeatMap(data=crime_latlon, name='Contour map')
@@ -150,11 +137,13 @@ def byebyeresult():
             img_tag = '<img src="data:image/png;base64,{0}">'.format(data_uri)
             print(img_tag)
 
-            return render_template("result.html", location_address = location.address,
-                                   location_latitude = lat, location_longtitude = lon,
-                                   total_crime = total_crime, url = 'new_plot.png')
+            return render_template("result.html", location_address=location.address,
+                                   location_latitude=lat, location_longtitude=lon,
+                                   total_crime=total_crime, url='new_plot.png')
         except:
             return render_template("error.html")
+
+
 #
 # def plot():
 #     left = [1, 2, 3, 4, 5]
@@ -168,5 +157,4 @@ def byebyeresult():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
-
+    app.run(debug=True)
