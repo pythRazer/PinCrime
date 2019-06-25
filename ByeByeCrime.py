@@ -6,6 +6,7 @@ from folium.plugins import HeatMap, FeatureGroupSubGroup
 import json
 from urllib.request import urlopen
 import matplotlib.pyplot as plt
+import base64
 from textwrap import wrap
 
 # Richard is a big pig
@@ -144,6 +145,10 @@ def byebyeresult():
         plt.bar(crime_types, count)
 
         plt.savefig('templates/new_plot.png')
+
+        data_uri = base64.b64encode(open('Graph.png', 'rb').read()).decode('utf-8')
+        img_tag = '<img src="data:image/png;base64,{0}">'.format(data_uri)
+        print(img_tag)
 
         return render_template("result.html", location_address = location.address,
                                location_latitude = lat, location_longtitude = lon,

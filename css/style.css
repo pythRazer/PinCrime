@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
-@import url(https://fonts.googleapis.com/css?family=Squada+One);
+@import url(cyrillic-ext.css);
+@import url(latin.css);
 
 body {
     padding: 20px 80px;
@@ -10,20 +10,20 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #555;
     text-decoration: none;
-    text-transform: uppercase;
-    font-size: 80px;
+    text-transform: capitalize;
+    font-size: 70px;
     font-weight: 800;
     letter-spacing: -3px;
     line-height: 1;
-    text-shadow: #EDEDED 3px 2px 0;
+    text-shadow: #EDEDED 2px 2px 0;
     position: relative;
 }
 
 #logo:after {
-    content: "ByeByeCrime";
+    content: "ByeByeCrimes";
     position: absolute;
-    left: 8px;
-    top: 20px;
+    left: 5px;
+    top: 18px;
 }
 
 #logo:after {
@@ -38,11 +38,11 @@ body {
 }
 
 #menu {
-    width: 800px;
-    height: 20px;
+    width: 700px;
+    height: 35px;
     list-style: none;
-    margin: 10px 0 0 0;
-    padding: 25px 15px;
+    margin: 50px 0 0 0;
+    padding: 30px 15px;
     border-top: 4px double #AAA;
     border-bottom: 4px double #AAA;
     position: relative;
@@ -93,9 +93,9 @@ body {
     margin: 0 -5px;
 }
 
-#menu a:hover {
-    color: #d90075;
-}
+/*#menu a:hover {*/
+/*    color: #d90075;*/
+/*}*/
 
 #menu li:after,
 #menu li:before {
@@ -119,9 +119,3 @@ body {
     left: 0;
     bottom: -4px;
     background-image: -webkit-linear-gradient(right, transparent 0%, rgba(0, 0, 0, .4) 100%);
-<<<<<<< HEAD
-}
-
-=======
-}
->>>>>>> 0d90f46f2e84aac70aa40c63706eeb6869054a11
