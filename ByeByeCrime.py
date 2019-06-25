@@ -98,7 +98,7 @@ def byebyeresult():
                     if ctg == crime_type[j]:
                         count[j] += 1
 
-            print(count)
+
             # total = 0
             # for k in range(len(count)):
             #     total += count[k]
@@ -127,11 +127,11 @@ def byebyeresult():
 
             folium_map.save("templates/ByeByeCrime.html")
 
-            crime_types = ['\n'.join(wrap(l, 12)) for l in crime_type]
-            plt.figure(figsize=(20, 10))
-            plt.bar(crime_types, count)
-
-            plt.savefig('templates/new_plot.png')
+            # crime_types = ['\n'.join(wrap(l, 12)) for l in crime_type]
+            # plt.figure(figsize=(20, 10))
+            # plt.bar(crime_types, count)
+            #
+            # plt.savefig('templates/new_plot.png')
 
             # data_uri = base64.b64encode(open('Graph.png', 'rb').read()).decode('utf-8')
             # img_tag = '<img src="data:image/png;base64,{0}">'.format(data_uri)
@@ -139,21 +139,10 @@ def byebyeresult():
 
             return render_template("result.html", location_address=location.address,
 
-                                   total_crime=total_crime, url='new_plot.png')
+                                   total_crime=total_crime)
         except:
             return render_template("error.html")
 
-
-#
-# def plot():
-#     left = [1, 2, 3, 4, 5]
-#     height = [10, 24, 36, 40, 5]
-#     tick_lable = ['one', 'two', 'three', 'four', 'five']
-#     plt.bar(left, height, tick_lable=tick_lable, width=0.8, color = ['red', 'green'])
-#     plt.xlabel('y - axis')
-#     plt.xlabel('x - axis')
-#     plt.title('My var chart!')
-#     plt.savefig('static/images/plot.png')
 
 
 if __name__ == '__main__':
