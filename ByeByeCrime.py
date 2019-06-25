@@ -64,97 +64,97 @@ def byebyeresult():
         address = request.form
         geolocator = ArcGIS(user_agent="app_test")
 
-        # try:
+        try:
 
-        location = geolocator.geocode(address)
-        lat = str(location.latitude)
-        lon = str(location.longitude)
-        start_coords = (lat, lon)
+            location = geolocator.geocode(address)
+            lat = str(location.latitude)
+            lon = str(location.longitude)
+            start_coords = (lat, lon)
 
-        folium_map = folium.Map(location=start_coords, zoom_start=14, width='100%', height='75%')
-        df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
-        df = pandas.read_json(df_request)
+            folium_map = folium.Map(location=start_coords, zoom_start=14, width='100%', height='75%')
+            df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
+            df = pandas.read_json(df_request)
 
-        fg = folium.FeatureGroup(name="Crime Pins")
-        # fg_anti = FeatureGroupSubGroup(fg, name="Anti Social Behaviour")
-        # fg_bicycle = FeatureGroupSubGroup(fg, name="Bicycle Theft")
+            fg = folium.FeatureGroup(name="Crime Pins")
+            # fg_anti = FeatureGroupSubGroup(fg, name="Anti Social Behaviour")
+            # fg_bicycle = FeatureGroupSubGroup(fg, name="Bicycle Theft")
 
-        total_crime = df["id"].size
+            total_crime = df["id"].size
 
-        crime_latlon = []
-
-
-        for i in range(total_crime):
-            crime_lat = float(df["location"].get(i)["latitude"])
-            crime_lon = float(df["location"].get(i)["longitude"])
-            crime_latlon.append([crime_lat, crime_lon])
-
-            ctg = df["category"][i]
-
-            if ctg not in crime_color.keys():
-                ctg = 'other-crime'
-
-            fg.add_child(folium.CircleMarker(location=[crime_lat, crime_lon], radius=8,
-                                             tooltip=ctg, fill_color=crime_color[ctg], color="dark", fill_opacity=0.7))
-
-            for j in range(len(crime_type)):
-                if ctg == crime_type[j]:
-                    count[j] += 1
-
-        print(count)
-        # total = 0
-        # for k in range(len(count)):
-        #     total += count[k]
-        #
-        # print(total)
+            crime_latlon = []
 
 
+            for i in range(total_crime):
+                crime_lat = float(df["location"].get(i)["latitude"])
+                crime_lon = float(df["location"].get(i)["longitude"])
+                crime_latlon.append([crime_lat, crime_lon])
+
+                ctg = df["category"][i]
+
+                if ctg not in crime_color.keys():
+                    ctg = 'other-crime'
+
+                fg.add_child(folium.CircleMarker(location=[crime_lat, crime_lon], radius=8,
+                                                 tooltip=ctg, fill_color=crime_color[ctg], color="dark", fill_opacity=0.7))
+
+                for j in range(len(crime_type)):
+                    if ctg == crime_type[j]:
+                        count[j] += 1
+
+            print(count)
+            # total = 0
+            # for k in range(len(count)):
+            #     total += count[k]
+            #
+            # print(total)
 
 
 
 
-            # plot()
-
-            # fg.add_child(fg_anti, fg_bicycle)
 
 
+                # plot()
 
-        fgu = folium.FeatureGroup(name = "User")
-        fgu.add_child((folium.Marker(location=(lat, lon), tooltip="You are here",
-                                            icon=folium.Icon(color='blue', icon='user'))))
-
-
-        # fgc = folium.FeatureGroup(name = "Contour map")
+                # fg.add_child(fg_anti, fg_bicycle)
 
 
 
-        # HeatMap().add_to(fgc)
-        heat_map = HeatMap(data=crime_latlon, name='Contour map')
-        folium_map.add_child(fg)
-        # folium_map.add_child(fg_anti)
-        # folium_map.add_child(fg_bicycle)
-        # fg.add_child(folium.LayerControl())
-        folium_map.add_child(fgu)
-        folium_map.add_child(heat_map)
-        folium_map.add_child(folium.LayerControl())
+            fgu = folium.FeatureGroup(name = "User")
+            fgu.add_child((folium.Marker(location=(lat, lon), tooltip="You are here",
+                                                icon=folium.Icon(color='blue', icon='user'))))
 
-        folium_map.save("templates/ByeByeCrime.html")
 
-        crime_types = ['\n'.join(wrap(l, 12)) for l in crime_type]
-        plt.figure(figsize=(20, 10))
-        plt.bar(crime_types, count)
+            # fgc = folium.FeatureGroup(name = "Contour map")
 
-        plt.savefig('templates/new_plot.png')
 
-        data_uri = base64.b64encode(open('Graph.png', 'rb').read()).decode('utf-8')
-        img_tag = '<img src="data:image/png;base64,{0}">'.format(data_uri)
-        print(img_tag)
 
-        return render_template("result.html", location_address = location.address,
-                               location_latitude = lat, location_longtitude = lon,
-                               total_crime = total_crime, url = 'new_plot.png')
-        # except:
-        #     return render_template("error.html")
+            # HeatMap().add_to(fgc)
+            heat_map = HeatMap(data=crime_latlon, name='Contour map')
+            folium_map.add_child(fg)
+            # folium_map.add_child(fg_anti)
+            # folium_map.add_child(fg_bicycle)
+            # fg.add_child(folium.LayerControl())
+            folium_map.add_child(fgu)
+            folium_map.add_child(heat_map)
+            folium_map.add_child(folium.LayerControl())
+
+            folium_map.save("templates/ByeByeCrime.html")
+
+            crime_types = ['\n'.join(wrap(l, 12)) for l in crime_type]
+            plt.figure(figsize=(20, 10))
+            plt.bar(crime_types, count)
+
+            plt.savefig('templates/new_plot.png')
+
+            data_uri = base64.b64encode(open('Graph.png', 'rb').read()).decode('utf-8')
+            img_tag = '<img src="data:image/png;base64,{0}">'.format(data_uri)
+            print(img_tag)
+
+            return render_template("result.html", location_address = location.address,
+                                   location_latitude = lat, location_longtitude = lon,
+                                   total_crime = total_crime, url = 'new_plot.png')
+        except:
+            return render_template("error.html")
 #
 # def plot():
 #     left = [1, 2, 3, 4, 5]
