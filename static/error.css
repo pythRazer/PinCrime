@@ -1,0 +1,7 @@
+@import url(cyrillic-ext.css);
+@import url(latin.css);
+
+body {
+    padding: 20px 80px;
+    background: #eee url(https://subtlepatterns.com/patterns/extra_clean_paper.png);
+}

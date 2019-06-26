@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="../static/result.css" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
     <title>Crime Result</title>
 
@@ -13,13 +14,24 @@
 <!--    <img src="new_plot.png" width="400" height="300">-->
 
 
-    <h3>Address: {{ location_address }}</h3>
-    <h3>Number of crimes in this area: {{total_crime}}</h3>
+<h3>Address: {{ location_address }}</h3>
+<h3>Number of crimes in this area: {{total_crime}}</h3>
 <form>
     <input type="button" value="Go back" onclick="history.back()">
 </form>
 
-{% extends "ByeByeCrime.html" %}
+
+<!--{% extends "PinCrimes.html" %}-->
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+
+<div class="fb-comments" data-href="http://localhost:5000/result" data-width="" data-numposts="5"></div>
+
+
 </body>
+
+
+
 
 </html>

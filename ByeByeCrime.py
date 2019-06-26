@@ -3,11 +3,6 @@ import pandas
 from geopy.geocoders import ArcGIS
 import folium
 from folium.plugins import HeatMap, FeatureGroupSubGroup
-# import json
-# from urllib.request import urlopen
-import matplotlib.pyplot as plt
-import base64
-from textwrap import wrap
 
 crime_type = ['anti-social-behaviour', 'bicycle-theft', 'burglary', 'criminal-damage-arson', 'drugs', 'other-theft',
               'possession-of-weapons', 'public-order', 'robbery', 'shoplifting', 'theft-from-the-person',
@@ -52,9 +47,7 @@ def home():
     return render_template('home.html')
 
 
-# @app.route('/', methods = ['POST', 'GET'])
-# def date():
-#     return year
+
 
 @app.route('/result', methods=['POST', 'GET'])
 def byebyeresult():
@@ -63,6 +56,7 @@ def byebyeresult():
         geolocator = ArcGIS(user_agent="app_test")
 
         try:
+
 
             location = geolocator.geocode(address)
             lat = str(location.latitude)
@@ -92,20 +86,14 @@ def byebyeresult():
                     ctg = 'other-crime'
 
                 fg.add_child(folium.CircleMarker(location=[crime_lat, crime_lon], radius=8,
-                                                 tooltip=ctg, fill_color=crime_color[ctg], color="dark", fill_opacity=0.7))
+                                                 tooltip=ctg, fill_color=crime_color[ctg], color="dark",
+                                                 fill_opacity=0.7))
 
                 for j in range(len(crime_type)):
                     if ctg == crime_type[j]:
                         count[j] += 1
 
 
-            # total = 0
-            # for k in range(len(count)):
-            #     total += count[k]
-            #
-            # print(total)
-
-            # plot()
 
             # fg.add_child(fg_anti, fg_bicycle)
 
@@ -113,7 +101,7 @@ def byebyeresult():
             fgu.add_child((folium.Marker(location=(lat, lon), tooltip="You are here",
                                          icon=folium.Icon(color='blue', icon='user'))))
 
-            # fgc = folium.FeatureGroup(name = "Contour map")
+
 
             # HeatMap().add_to(fgc)
             heat_map = HeatMap(data=crime_latlon, name='Contour map')
@@ -125,7 +113,7 @@ def byebyeresult():
             folium_map.add_child(heat_map)
             folium_map.add_child(folium.LayerControl())
 
-            folium_map.save("templates/ByeByeCrime.html")
+            folium_map.save("templates/PinCrimes.html")
 
             # crime_types = ['\n'.join(wrap(l, 12)) for l in crime_type]
             # plt.figure(figsize=(20, 10))
@@ -142,7 +130,6 @@ def byebyeresult():
                                    total_crime=total_crime)
         except:
             return render_template("error.html")
-
 
 
 if __name__ == '__main__':
