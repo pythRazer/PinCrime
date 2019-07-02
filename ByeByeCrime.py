@@ -123,9 +123,6 @@ def byebyeresult():
 
         plt.savefig('static/new_plot.png')
 
-        # data_uri = base64.b64encode(open('Graph.png', 'rb').read()).decode('utf-8')
-        # img_tag = '<img src="data:image/png;base64,{0}">'.format(data_uri)
-        # print(img_tag)
 
         return render_template("result.html", location_address=location.address,
 
