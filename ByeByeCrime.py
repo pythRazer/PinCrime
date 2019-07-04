@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import pandas
 from geopy.geocoders import ArcGIS
 import folium
-from folium.plugins import HeatMap, FeatureGroupSubGroup
+from folium.plugins import HeatMap
 from matplotlib import pyplot as plt
 from textwrap import wrap
 
@@ -12,6 +12,7 @@ crime_type = ['anti-social-behaviour', 'bicycle-theft', 'burglary', 'criminal-da
 
 color = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige', 'darkblue', 'darkgreen',
          'cadetblue', 'gray', 'pink', 'lightgreen']
+
 
 count = [0] * 14
 crime_color = {
@@ -31,15 +32,9 @@ crime_color = {
     'other-crime': 'lightgreen'
 }
 
-crime_colors = {zip(crime_type, color)}
+# crime_colors = {zip(crime_type, color)}
 
 crime_count = {zip(crime_type, count)}
-
-level = {4, 2, 1, 2, 3, 'n/a', 3, 4, 2, 4, 1, 3, 3, 'n/a'}
-
-crime_level = {zip(crime_type, level)}
-
-# print(count_dict)
 
 app = Flask(__name__)
 
@@ -61,17 +56,24 @@ def byebyeresult():
 
 
         location = geolocator.geocode(address)
+        # location_extent = location.raw['extent']
+        # min_x = str(location_extent['xmin'])
+        # min_y = str(location_extent['ymin'])
+        # max_x = str(location_extent['xmax'])
+        # max_y = str(location_extent['ymax'])
+        # fb_return_url = "http://0.0.0.0:5000/result+minx" + min_x + "miny" + min_y + "max_x" + max_x + "max_y" + max_y
+
         lat = str(location.latitude)
         lon = str(location.longitude)
         start_coords = (lat, lon)
+
+
 
         folium_map = folium.Map(location=start_coords, zoom_start=14, width='80%', height='80%')
         df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
         df = pandas.read_json(df_request)
 
         fg = folium.FeatureGroup(name="Crime Pins")
-        # fg_anti = FeatureGroupSubGroup(fg, name="Anti Social Behaviour")
-        # fg_bicycle = FeatureGroupSubGroup(fg, name="Bicycle Theft")
 
         total_crime = df["id"].size
 
@@ -96,21 +98,14 @@ def byebyeresult():
                     count[j] += 1
 
 
-
-        # fg.add_child(fg_anti, fg_bicycle)
-
         fgu = folium.FeatureGroup(name="User")
         fgu.add_child((folium.Marker(location=(lat, lon), tooltip="You are here",
                                      icon=folium.Icon(color='blue', icon='user'))))
 
 
-
-        # HeatMap().add_to(fgc)
         heat_map = HeatMap(data=crime_latlon, name='Contour map')
         folium_map.add_child(fg)
-        # folium_map.add_child(fg_anti)
-        # folium_map.add_child(fg_bicycle)
-        # fg.add_child(folium.LayerControl())
+
         folium_map.add_child(fgu)
         folium_map.add_child(heat_map)
         folium_map.add_child(folium.LayerControl())
@@ -122,7 +117,6 @@ def byebyeresult():
         plt.bar(crime_types, count)
 
         plt.savefig('static/new_plot.png')
-
 
         return render_template("result.html", location_address=location.address,
 
