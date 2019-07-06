@@ -5,6 +5,8 @@ import folium
 from folium.plugins import HeatMap
 import matplotlib.pyplot as plt, mpld3
 from textwrap import wrap
+from urllib.request import urlopen
+import json
 
 crime_type = ['anti-social-behaviour', 'bicycle-theft', 'burglary', 'criminal-damage-arson', 'drugs', 'other-theft',
               'possession-of-weapons', 'public-order', 'robbery', 'shoplifting', 'theft-from-the-person',
@@ -40,7 +42,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    newJson = json.loads(urlopen("https://data.police.uk/api/crime-last-updated").read())
+    last_updated = newJson['date']
+    return render_template('home.html', last_updated=last_updated)
 
 
 @app.route('/Statistics', methods=['GET'])
