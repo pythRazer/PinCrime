@@ -9,25 +9,26 @@
 <body>
 
 
-<img src="../static/new_plot.png" width="800" height="400">
+
 
 
 <h3>Address: {{ location_address }}</h3>
 <h3>Number of crimes in this area: {{total_crime}}</h3>
+<h3>City: {{city}}</h3>
 
 <form>
     <input type="button" value="Go back" onclick="history.back()">
 </form>
-<!--<form>-->
-<!--    <input type="button" value="See Statistic" onclick="result_statistic.html">-->
-<!--</form>-->
 
 
+<form>
+    <input type="button" value="Statistics" onclick="window.location.href='Statistics'" />
+</form>
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
 
-<div class="fb-comments" data-href="http://0.0.0.0:5000/result" data-width="" data-numposts="5"></div>
+<div class="fb-comments" data-href={{url}} data-width="" data-numposts="5"></div>
 
 
 {% extends "PinCrimes.html" %}
