@@ -17,14 +17,27 @@
 
 <form action="http://0.0.0.0:5000/result" method="POST">
 
-    <div id="ins"><p>Please input the address </p></div>
-    <div id="input">
-        <input type="text" name="Address" placeholder="Address..."/>
-    </div>
-    <div id="submit">
+<!--    <div id="ins"><p>Please input the address </p></div>-->
+<!--    <div id="input">-->
+<!--        <input type="text" name="Address" placeholder="Address..."/>-->
+<!--    </div>-->
+<!--    <div id="submit">-->
 
-        <!--        <a href="#" class="submit"><span>Submit</span></a>-->
-        <p><a><span>Submit</span></a></p>
+<!--        &lt;!&ndash;        <a href="#" class="submit"><span>Submit</span></a>&ndash;&gt;-->
+<!--        <p><a><span>Submit</span></a></p>-->
+<!--    </div>-->
+    <div id="cover">
+        <form method="get" action="">
+            <div class="tb">
+                <div class="td"><input type="text" name="Address" placeholder="Input the address" required></div>
+                <div class="td" id="s-cover">
+                    <button type="submit">
+                        <div id="s-circle"></div>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </form>
 
@@ -33,7 +46,7 @@
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
 
-<div class="fb-comments" data-href="http://0.0.0.0:5000" data-width="" data-numposts="10"></div>
+<div id="fb" class="fb-comments" data-href="http://0.0.0.0:5000" data-width="" data-numposts="10"></div>
 
 
 <h5>Last update of crime data: {{last_updated}}</h5>

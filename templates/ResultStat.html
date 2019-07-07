@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="../static/result.css" rel="stylesheet" type="text/css"/>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="topnav" class="topnav">
+    <a href="#home">Home</a>
+    <a class="active" href="Statistics.html">Statistics</a>
+    <a href="ResultCom.html">Comment</a>
+    <a href="home.html">Back</a>
+</div>
+
+<h3>Address: {{ location_address }}</h3>
+<h3>Number of crimes in this area: {{total_crime}}</h3>
+<h3>City: {{city}}</h3>
+
+{% extends "Statistics.html" %}
+
+</body>
+</html>
