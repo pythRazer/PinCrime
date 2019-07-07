@@ -1,29 +1,37 @@
 <html>
 <head>
-    <link href="../static/style.css" rel="stylesheet" type="text/css" />
+    <link href="../static/style.css" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
     <title>Pin Crimes</title>
-    <a href="/" id="logo">Pin Crimes</a>
+    <a id="logo">Pin Crimes </a>
+    <img src="https://cdn.pixabay.com/photo/2015/11/06/13/29/union-jack-1027898_960_720.jpg"
+         style="width:96px; height:56px;">
     <ul id="menu">
         <li><a href="https://group2.rits-projects.com/"><span>description</span></a></li>
         <li><a href="../static/Total_Crime_England.png"><span>statistic</span></a></li>
+        <li><a href="https://www.police.uk"><span>source</span></a></li>
         <li><a href="https://group2.rits-projects.com/about-us/"><span>contact</span></a></li>
-
     </ul>
 </head>
 <body>
 
 <form action="http://0.0.0.0:5000/result" method="POST">
-<p>Please input the address <input type="text" name="Address" placeholder="Address"/></p>
-<p><a href="/"><span><input type="submit" value="submit"/></span></a></p>
 
+    <div id="ins"><p>Please input the address </p></div>
+    <div id="input">
+        <input type="text" name="Address" placeholder="Address..."/>
+    </div>
+    <div id="submit">
+
+        <!--        <a href="#" class="submit"><span>Submit</span></a>-->
+        <p><a><span>Submit</span></a></p>
+    </div>
 </form>
 
 
-
-
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
 
 <div class="fb-comments" data-href="http://0.0.0.0:5000" data-width="" data-numposts="10"></div>
 
