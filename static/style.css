@@ -209,7 +209,7 @@ input, button {
     width: 1200px;
     padding: 18px;
     margin: 20px auto 0 auto;
-    background-color: rgba(204, 66, 74, 0.6);
+    background-color: rgba(93, 93, 93, 0.53);
     border-radius: 20px;
     /*box-shadow: 0 10px 40px #8f1a00, 0 0 0 20px #ffffffeb;*/
     transform: scale(0.45);

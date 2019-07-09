@@ -7,20 +7,26 @@
 </head>
 <body>
 
-<div id="topnav" class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="Statistics.html">Statistics</a>
-    <a href="ResultCom.html">Comment</a>
-    <a href="home.html">Back</a>
-</div>
+<header>
+    <h1>Pin Crime</h1>
+    <h3>Address: {{ location_address }}</h3>
+    <h3>Number of crimes in this area: {{total_crime}}</h3>
+    <h3>City: {{city}}</h3>
+    <!--    <nav>-->
+    <!--      <a href="">Home</a>-->
+    <!--      <a href="">About</a>-->
+    <!--      <a href="">Gallery</a>-->
+    <!--      <a href="">Contact</a>-->
+    <!--    </nav>-->
 
-<form>
-    <input type="button" value="Statistics" onclick="window.location.href='Statistics'"/>
-</form>
+</header>
 
-<h3>Address: {{ location_address }}</h3>
-<h3>Number of crimes in this area: {{total_crime}}</h3>
-<h3>City: {{city}}</h3>
+
+<!--<h3>Address: {{ location_address }}</h3>-->
+<!--<h3>Number of crimes in this area: {{total_crime}}</h3>-->
+<!--<h3>City: {{city}}</h3>-->
+
+
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
@@ -28,7 +34,17 @@
 
 <div class="fb-comments" data-href={{url}} data-width="" data-numposts="5"></div>
 
-{% extends "PinCrimes.html" %}
+<form>
+    <input type="button" value="Statistics" onclick="window.location.href='Statistics'"/>
+</form>
+
+<form>
+    <input type="button" value="Go back" onclick="history.back()">
+</form>
+
+<div id="map">
+    {% extends "PinCrimes.html" %}
+</div>
 
 </body>
 </html>
