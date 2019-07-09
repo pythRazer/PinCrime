@@ -15,15 +15,60 @@ body {
 @include transition(padding-top .5 s ease);
 }
 
-.header {
-    padding: 60px;
-    text-align: center;
-    background: #bc817f;
-    color: white;
-    font-size: 30px;
+/*.header {*/
+/*    padding: 60px;*/
+/*    text-align: center;*/
+/*    color: white;*/
+/*    font-size: 16px;*/
+/*}*/
+
+#head {
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0px;
+    line-height: 1;
+    /*text-shadow: #EDEDED 2px 2px 0;*/
+    position: relative;
 }
+
+/*#head:after {*/
+/*    content: "Pin Crimes";*/
+/*    position: absolute;*/
+/*    left: 6px;*/
+/*    top: 18px;*/
+/*}*/
+
+/*#head:after {*/
+/*    !*background: url(https://subtlepatterns.com/patterns/crossed_stripes.png) repeat;*!*/
+/*    background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 25%, #555 25%, #555 50%, transparent 50%, transparent 75%, #555 75%);*/
+/*    background-size: 4px 4px;*/
+/*    -webkit-background-clip: text;*/
+/*    -webkit-text-fill-color: transparent;*/
+/*    z-index: -3;*/
+/*    display: block;*/
+/*    text-shadow: none;*/
+/*}*/
+
 
 #map {
     padding: 25px 0px;
 }
+
+#btn {
+    padding: 20px 0px;
+
+}
+
+#footer {
+    clear: both;
+    padding: 30px;
+    text-align: center;
+    color: rgba(202, 138, 121, 0.98);
+    font-size: 16px;
+}
+
+
 

@@ -8,27 +8,24 @@
 <body>
 
 <header>
-    <h1>Pin Crime</h1>
-    <h3>Address: {{ location_address }}</h3>
-    <h3>Number of crimes in this area: {{total_crime}}</h3>
-    <h3>City: {{city}}</h3>
-    <!--    <nav>-->
-    <!--      <a href="">Home</a>-->
-    <!--      <a href="">About</a>-->
-    <!--      <a href="">Gallery</a>-->
-    <!--      <a href="">Contact</a>-->
-    <!--    </nav>-->
-
+    <div id="head">
+        <h1>Pin Crime</h1>
+        <h3>Address: {{ location_address }}</h3>
+        <h3>Number of crimes in this area: {{total_crime}}</h3>
+        <h3>City: {{city}}</h3>
+        <!--    <nav>-->
+        <!--      <a href="">Home</a>-->
+        <!--      <a href="">About</a>-->
+        <!--      <a href="">Gallery</a>-->
+        <!--      <a href="">Contact</a>-->
+        <!--    </nav>-->
+    </div>
 </header>
 
 
 <!--<h3>Address: {{ location_address }}</h3>-->
 <!--<h3>Number of crimes in this area: {{total_crime}}</h3>-->
 <!--<h3>City: {{city}}</h3>-->
-
-
-
-
 
 
 {% include "PinCrimes.html" %}
@@ -44,9 +41,17 @@
 
 <div class="fb-comments" data-href={{url}} data-width="" data-numposts="5"></div>
 
-<form>
-    <input type="button" value="Go back" onclick="history.back()"><input type="button" value="Crime statistics in this area" onclick="window.location.href='Statistics'"/>
-</form>
+<div id="btn">
+    <form>
+        <input type="button" value="Go back" onclick="history.back()"><input type="button"
+                                                                             value="Crime statistics in this area"
+                                                                             onclick="window.location.href='Statistics'"/>
+    </form>
+</div>
+
+<div class="footer">
+    <img src="../en-ritsumei_ogp_1.png" height="48.9" width="180.0"/>
+</div>
 
 
 </body>
