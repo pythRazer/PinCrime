@@ -69,7 +69,7 @@ def byebyeresult():
         lon = str(location.longitude)
         start_coords = (lat, lon)
 
-        folium_map = folium.Map(location=start_coords, zoom_start=14, width='100%', height='80%')
+        folium_map = folium.Map(location=start_coords, zoom_start=14, width='90%', height='80%')
         df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
         df = pandas.read_json(df_request)
 

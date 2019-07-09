@@ -28,6 +28,16 @@
 
 
 
+
+
+
+{% include "PinCrimes.html" %}
+
+<hr>
+
+
+<h3>The comment section for {{city}}</h3>
+
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
         src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
@@ -35,16 +45,9 @@
 <div class="fb-comments" data-href={{url}} data-width="" data-numposts="5"></div>
 
 <form>
-    <input type="button" value="Statistics" onclick="window.location.href='Statistics'"/>
+    <input type="button" value="Go back" onclick="history.back()"><input type="button" value="Crime statistics in this area" onclick="window.location.href='Statistics'"/>
 </form>
 
-<form>
-    <input type="button" value="Go back" onclick="history.back()">
-</form>
-
-<div id="map">
-    {% extends "PinCrimes.html" %}
-</div>
 
 </body>
 </html>
