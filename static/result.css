@@ -34,24 +34,6 @@ body {
     position: relative;
 }
 
-/*#head:after {*/
-/*    content: "Pin Crimes";*/
-/*    position: absolute;*/
-/*    left: 6px;*/
-/*    top: 18px;*/
-/*}*/
-
-/*#head:after {*/
-/*    !*background: url(https://subtlepatterns.com/patterns/crossed_stripes.png) repeat;*!*/
-/*    background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 25%, #555 25%, #555 50%, transparent 50%, transparent 75%, #555 75%);*/
-/*    background-size: 4px 4px;*/
-/*    -webkit-background-clip: text;*/
-/*    -webkit-text-fill-color: transparent;*/
-/*    z-index: -3;*/
-/*    display: block;*/
-/*    text-shadow: none;*/
-/*}*/
-
 
 #map {
     padding: 25px 0px;
