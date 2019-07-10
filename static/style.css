@@ -27,7 +27,6 @@ body {
 }
 
 #logo:after {
-    /*background: url(https://subtlepatterns.com/patterns/crossed_stripes.png) repeat;*/
     background-image: -webkit-linear-gradient(left top, transparent 0%, transparent 25%, #555 25%, #555 50%, transparent 50%, transparent 75%, #555 75%);
     background-size: 4px 4px;
     -webkit-background-clip: text;
@@ -36,6 +35,15 @@ body {
     display: block;
     text-shadow: none;
 }
+
+#OurLogo {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 850px;
+    left: 490px;
+}
+
 
 #menu {
     width: 800px;
@@ -305,6 +313,6 @@ button span:before, button span:after {
     background-color: #fff;
 }
 
-#fb{
+#fb {
     margin-top: 250px;
 }

@@ -94,7 +94,7 @@ def pin_crime_result():
             start_coords = (lat, lon)
 
             # Initialize the folium map
-            folium_map = folium.Map(location=start_coords, zoom_start=14, width='90%', height='80%')
+            folium_map = folium.Map(location=start_coords, zoom_start=14, width='95%', height='80%')
             # Request the crime data
             # Pasting latitude and longitude to the url of data frame request
             df_request = "https://data.police.uk/api/crimes-street/all-crime?lat=" + str(lat) + "&" + "lng=" + str(lon)
