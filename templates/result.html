@@ -12,28 +12,17 @@
         <h1>Pin Crime</h1>
         <h3>Address: {{ location_address }}</h3>
         <h3>Number of crimes in this area: {{total_crime}}</h3>
-        <h3>City: {{city}}</h3>
-        <!--    <nav>-->
-        <!--      <a href="">Home</a>-->
-        <!--      <a href="">About</a>-->
-        <!--      <a href="">Gallery</a>-->
-        <!--      <a href="">Contact</a>-->
-        <!--    </nav>-->
+        <h3>County: {{county}}</h3>
+
     </div>
 </header>
 
 
-<!--<h3>Address: {{ location_address }}</h3>-->
-<!--<h3>Number of crimes in this area: {{total_crime}}</h3>-->
-<!--<h3>City: {{city}}</h3>-->
-
-
 {% include "PinCrimes.html" %}
 
-<hr>
 
 
-<h3>The comment section for {{city}}</h3>
+<h3>The comment section for '{{county}}'</h3>
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous"
@@ -41,16 +30,18 @@
 
 <div class="fb-comments" data-href={{url}} data-width="" data-numposts="5"></div>
 
+
 <div id="btn">
     <form>
         <input type="button" value="Go back" onclick="history.back()"><input type="button"
                                                                              value="Crime statistics in this area"
-                                                                             onclick="window.location.href='Statistics'"/>
+                                                                             onclick="window.location.href='Pie_Chart'"/>
     </form>
 </div>
 
+
 <div class="footer">
-    <img src="../en-ritsumei_ogp_1.png" height="48.9" width="180.0"/>
+    <img src="../static/en-ritsumei_ogp_1.png" height="48.9" width="180.0"/>
 </div>
 
 
