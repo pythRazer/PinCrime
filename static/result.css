@@ -52,5 +52,22 @@ body {
     font-size: 16px;
 }
 
+#color {
+    top: 300px;
+    left: 100px;
+}
 
+#cc {
+    top:15px;
+    /*margin-top: 15px;*/
+    /*margin-left: 15px;*/
+    /*margin-right: auto;*/
+    /*margin-bottom: 15px;*/
+}
 
+/*#table {*/
+/*    margin-top: 15px;*/
+/*    margin-left: 15px;*/
+/*    margin-right: auto;*/
+/*    margin-bottom: 15px;*/
+/*}*/
