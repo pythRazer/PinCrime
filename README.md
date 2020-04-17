@@ -20,16 +20,6 @@ Project website: https://group2.rits-projects.com/
 
 ## Authors
 
-* **Lee Jui Chi**: Backend Developer
+* **Lee Jui Chi**: App developer, Backend Developer
 * **Cho I An**: Frontend Developer
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
 
