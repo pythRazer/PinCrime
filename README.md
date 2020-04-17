@@ -5,8 +5,15 @@ see the distribution of it. The crime data is from Police API from UK police (ht
 
 ## Features
 
-![Image description](/screenshots/Main_page.png)
+![The web app main page](/screenshots/Main_page.png)
 
+![Result page](/screenshots/Result_and_map.png)
+
+![Filter no heat map](/screenshots/Filter_no_heat_map.png)
+
+![Filter no pins](/screenshots/Filter_no_pins.png)
+
+![Statistical chart](/screenshots/Statistical_chart.png)
 
 
 ## Authors
