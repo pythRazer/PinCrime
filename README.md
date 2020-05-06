@@ -15,6 +15,8 @@ Project website: https://group2.rits-projects.com/
 
 ![Filter no pins](/screenshots/Filter_no_pins.png)
 
+![Result Bottom](result_bottom.png)
+
 ![Statistical chart](/screenshots/Statistical_chart.png)
 
 
